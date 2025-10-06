@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@400;500&display=swap');
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+:root {
+  --background: #fffaf0; /* Cream background */
+  --foreground: #171717; /* Dark text */
 }
 
 @theme inline {
@@ -12,10 +20,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Force same scheme in dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fffaf0; /* Keep cream */
+    --foreground: #171717; /* Keep dark text */
   }
 }
 
