@@ -1,6 +1,6 @@
 "use client";
 import LocationsDesktop from "@/app/components/LocationDesktop";
-import LocationsMobile from "@/app/components/LocationMobile";
+import Whatweoffer from '@/app/components/Whatweoffer'
 
 export default function Location() {
   return (
@@ -9,7 +9,7 @@ export default function Location() {
         <LocationsDesktop />
       </div>
       <div className="block md:hidden">
-        <LocationsMobile />
+      <Whatweoffer/>
       </div>
     </>
   );

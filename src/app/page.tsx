@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials'
 import Faq from './components/Faq'
 import ContactForm from './components/Contactform'
 import Location from './components/Location'
+
 const page = () => {
   return (
     <div>
