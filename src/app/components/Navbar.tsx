@@ -41,7 +41,7 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between px-6 h-[70px]">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex-shrink-0 flex items-center h-full">
           <Image
             src="/sportcationlogo.png"
             alt="Sportcation Logo"
@@ -53,7 +53,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex space-x-8 font-medium text-sm text-white relative">
+        <div className="hidden md:flex items-center space-x-8 font-medium text-sm text-white relative">
           {navLinks.map((link) =>
             link.name === "Sports" ? (
               <div
@@ -91,8 +91,8 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Book Now Button (desktop – rounded edges) */}
-        <div className="hidden md:flex">
+        {/* Book Now Button (desktop) */}
+        <div className="hidden md:flex items-center ml-4">
           <Link
             href="/book"
             className="relative overflow-hidden bg-[#F4C2C2] text-[#9C0033] font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 group"
@@ -106,7 +106,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden text-white">
+        <div className="md:hidden flex items-center text-white">
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation menu"
@@ -116,63 +116,68 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-[#9C0033] rounded-b-2xl px-6 py-4 space-y-4 text-white">
-          {navLinks.map((link) =>
-            link.name === "Sports" ? (
-              <div key={link.name}>
-                <button
-                  onClick={() => setMobileSportsOpen(!mobileSportsOpen)}
-                  className="flex items-center justify-between w-full transition-colors hover:text-[#F4C2C2]"
-                >
-                  {link.name}
-                  <ChevronDown
-                    size={16}
-                    className={`transform transition-transform ${
-                      mobileSportsOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {mobileSportsOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    {sportsLinks.map((sublink) => (
-                      <Link
-                        key={sublink.name}
-                        href={sublink.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block transition-colors hover:text-[#F4C2C2]"
-                      >
-                        {sublink.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block transition-colors duration-300 hover:text-[#F4C2C2]"
-              >
-                {link.name}
-              </Link>
-            )
-          )}
-
-          {/* Book Now (mobile – rounded edges) */}
-          <div className="pt-4">
-            <Link
-              href="/book"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center bg-[#F4C2C2] text-[#9C0033] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#f7d2d2] transition-all duration-300"
+ {/* Mobile dropdown */}
+{isOpen && (
+  <div className="md:hidden bg-[#9C0033] rounded-b-2xl px-6 py-4 space-y-4 text-white">
+    {navLinks.map((link) => {
+      if (link.name === "Sports") {
+        return (
+          <div key={link.name}>
+            <button
+              onClick={() => setMobileSportsOpen(!mobileSportsOpen)}
+              className="flex items-center justify-between w-full transition-colors hover:text-[#F4C2C2]"
             >
-              Book Now
-            </Link>
+              {link.name}
+              <ChevronDown
+                size={16}
+                className={`transform transition-transform ${
+                  mobileSportsOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {mobileSportsOpen && (
+              <div className="pl-4 mt-2 space-y-2">
+                {sportsLinks.map((sublink) => (
+                  <Link
+                    key={sublink.name}
+                    href={sublink.href}
+                    onClick={() => setIsOpen(false)}
+                    className="block transition-colors hover:text-[#F4C2C2]"
+                  >
+                    {sublink.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        );
+      } else {
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            onClick={() => setIsOpen(false)}
+            className="block transition-colors duration-300 hover:text-[#F4C2C2]"
+          >
+            {link.name}
+          </Link>
+        );
+      }
+    })}
+
+    {/* Book Now (mobile) */}
+    <div className="pt-4">
+      <Link
+        href="/book"
+        onClick={() => setIsOpen(false)}
+        className="block w-full text-center bg-[#F4C2C2] text-[#9C0033] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-[#f7d2d2] transition-all duration-300"
+      >
+        Book Now
+      </Link>
+    </div>
+  </div>
+)}
+
     </nav>
   );
 };

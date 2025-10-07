@@ -32,8 +32,8 @@ export default function Hero() {
     default: "/original.jpeg",
     football: "/soccermobile.jpeg",
     tennis: "/tennismobile.jpeg",
-    f1: "/rugbymobile.jpeg",
-    rugby: "/f1mobile.jpeg",
+    f1: "/f1mobile.jpeg",
+    rugby:"/rugbymobile.jpeg" ,
   };
 
   const currentBackground = isMobile
