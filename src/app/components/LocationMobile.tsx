@@ -32,21 +32,19 @@ const locations = [
 
 export default function LocationsMobile() {
   return (
-    <section className="md:hidden relative w-full bg-[#fffaf0] py-16 overflow-hidden">
-      <h2 className="text-3xl font-semibold text-center text-[#722F37] mb-8 px-6">
+    <section className="md:hidden relative w-full bg-[#fffaf0] py-12 overflow-hidden">
+      <h2 className="text-3xl font-semibold text-center text-[#722F37] mb-8 px-4">
         Explore Our Sportcation Locations
       </h2>
 
-      {/* Horizontal scroll container */}
       <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scroll-smooth scrollbar-hide">
         {locations.map((item) => (
           <motion.div
             key={item.id}
             whileTap={{ scale: 0.97 }}
-            className="min-w-[70%] snap-center bg-white rounded-3xl shadow-xl overflow-hidden flex-shrink-0"
+            className="min-w-[65%] snap-center bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0"
           >
-            {/* Image */}
-            <div className="relative h-60 w-full">
+            <div className="relative h-64 w-full">
               <Image
                 src={item.image}
                 alt={item.name}
@@ -55,7 +53,6 @@ export default function LocationsMobile() {
               />
             </div>
 
-            {/* Text content */}
             <div className="p-5 text-center">
               <h3 className="text-xl font-semibold text-[#722F37] mb-2">
                 {item.name}
