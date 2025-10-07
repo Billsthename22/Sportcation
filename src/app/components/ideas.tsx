@@ -79,7 +79,7 @@ export default function Ideas() {
               and sophistication.
             </p>
             <motion.a
-              href="https://springandbells.com/tickets/Competition.php?sportCode=1"
+              href="https://springandbells.com/tickets/Competition.php?sportCode=2"
               whileHover={{ scale: 1.05 }}
               className="inline-block mt-2 border-2 border-[#722F37] text-[#722F37] px-7 py-3 rounded-md text-base font-semibold hover:bg-[#722F37] hover:text-white transition-all duration-300"
             >
@@ -109,7 +109,7 @@ export default function Ideas() {
               moments.
             </p>
             <motion.a
-              href="https://springandbells.com/tickets/Competition.php?sportCode=1"
+              href="https://springandbells.com/tickets/Competition.php?sportCode=11"
               whileHover={{ scale: 1.05 }}
               className="inline-block mt-2 border-2 border-[#722F37] text-[#722F37] px-7 py-3 rounded-md text-base font-semibold hover:bg-[#722F37] hover:text-white transition-all duration-300"
             >
@@ -155,7 +155,7 @@ export default function Ideas() {
               unmatched intensity and camaraderie among fans and players alike.
             </p>
             <motion.a
-              href="https://springandbells.com/tickets/Competition.php?sportCode=1"
+              href="https://springandbells.com/tickets/Competition.php?sportCode=3"
               whileHover={{ scale: 1.05 }}
               className="inline-block mt-2 border-2 border-[#722F37] text-[#722F37] px-7 py-3 rounded-md text-base font-semibold hover:bg-[#722F37] hover:text-white transition-all duration-300"
             >

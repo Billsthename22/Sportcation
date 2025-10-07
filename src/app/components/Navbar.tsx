@@ -94,7 +94,7 @@ const Navbar = () => {
         {/* Book Now Button (desktop) */}
         <div className="hidden md:flex items-center ml-4">
           <Link
-            href="/book"
+            href="https://springandbells.com/tickets/index.php"
             className="relative overflow-hidden bg-[#F4C2C2] text-[#9C0033] font-semibold px-6 py-3 rounded-full shadow-md transition-all duration-300 group"
           >
             <span className="relative z-10">Book Now</span>
