@@ -34,19 +34,18 @@ export default function LocationsMobile() {
   return (
     <section className="md:hidden relative w-full bg-[#fffaf0] py-16 overflow-hidden">
       {/* Heading */}
-      <h2 className="text-3xl font-semibold text-center text-[#722F37] mb-8 px-4">
+      <h2 className="text-3xl font-semibold text-center text-[#722F37] mb-8 px-6">
         Explore Our Sportcation Locations
       </h2>
 
       {/* Horizontal scroll container */}
-      <div className="flex gap-4 overflow-x-auto px-4 snap-x snap-mandatory scrollbar-hide scroll-smooth">
+      <div className="flex gap-6 overflow-x-auto px-6 snap-x snap-mandatory scrollbar-hide scroll-smooth">
         {locations.map((item) => (
           <motion.div
             key={item.id}
             whileTap={{ scale: 0.98 }}
-            className="min-w-[70%] max-w-[300px] snap-center bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0"
+            className="min-w-[85%] snap-center bg-white rounded-2xl shadow-lg overflow-hidden flex-shrink-0"
           >
-            {/* Image */}
             <div className="relative h-64 w-full">
               <Image
                 src={item.image}
@@ -56,10 +55,13 @@ export default function LocationsMobile() {
               />
             </div>
 
-            {/* Text content */}
             <div className="p-5 text-center">
-              <h3 className="text-xl font-semibold text-[#722F37] mb-2">{item.name}</h3>
-              <p className="text-gray-700 text-sm mb-4 leading-relaxed">{item.description}</p>
+              <h3 className="text-xl font-semibold text-[#722F37] mb-2">
+                {item.name}
+              </h3>
+              <p className="text-gray-700 text-sm mb-4 leading-relaxed">
+                {item.description}
+              </p>
               <a
                 href="https://springandbells.com/tickets/Competition.php?sportCode=1"
                 target="_blank"

@@ -1,17 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFutbol, FaFlagCheckered, FaRunning } from "react-icons/fa";
 import { GiTennisBall } from "react-icons/gi";
 import Image from "next/image";
 
 export default function Hero() {
-  // Track which sport is active
   const [activeSport, setActiveSport] = useState("default");
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Backgrounds for each sport
-  const backgrounds: Record<string, string> = {
+  // Detect screen size
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize(); // check on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Background images for desktop
+  const backgroundsDesktop: Record<string, string> = {
     default: "/stadium.jpg",
     football: "/soccer.jpeg",
     tennis: "/hd11.jpeg",
@@ -19,12 +27,25 @@ export default function Hero() {
     rugby: "/hd3.jpeg",
   };
 
+  // Background images for mobile
+  const backgroundsMobile: Record<string, string> = {
+    default: "/original.jpeg",
+    football: "/soccermobile.jpeg",
+    tennis: "/tennismobile.jpeg",
+    f1: "/rugbymobile.jpeg",
+    rugby: "/f1mobile.jpeg",
+  };
+
+  const currentBackground = isMobile
+    ? backgroundsMobile[activeSport]
+    : backgroundsDesktop[activeSport];
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={activeSport}
+          key={`${activeSport}-${isMobile ? "mobile" : "desktop"}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -32,7 +53,7 @@ export default function Hero() {
           className="absolute inset-0 -z-10"
         >
           <Image
-            src={backgrounds[activeSport]}
+            src={currentBackground}
             alt={`${activeSport} background`}
             fill
             priority
@@ -61,7 +82,7 @@ export default function Hero() {
           before. Curated travel experiences for the passionate fan.
         </p>
 
-        {/* Sports Icons — clickable to change background */}
+        {/* Sports Icons */}
         <div className="flex justify-center gap-8 text-5xl mb-10 text-white">
           <FaFutbol
             onClick={() => setActiveSport("football")}
